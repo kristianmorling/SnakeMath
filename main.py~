@@ -1,0 +1,41 @@
+import game
+import pygame
+import globalvars
+import sys
+
+print("Running main.py")
+
+# Initiera moduler
+try:
+    pygame.init()
+    globalvars.init()
+    game = game.init()
+    #menu = menu.init()
+except:
+    print("Ett fel inträffade vid programinitiering! Avslutar spel.")
+    sys.exit(1)
+
+#global size
+screen = pygame.display.set_mode(globalvars.size)
+
+while globalvars.running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            globalvars.running = False
+        elif event.type == pygame.KEYDOWN:
+            pass
+            
+    screen.fill((0,0,0)) # erase image on screen
+
+    if globalvars.curr_window == "game":
+        screen.blit(game.surface, (0, 0))
+    else:
+        pass
+        # blitta menu
+        #screen.blit(world.get_world(), (0, 0))
+
+    pygame.display.flip() # display new content
+
+    pygame.time.delay(120)
+    
+pygame.quit()
