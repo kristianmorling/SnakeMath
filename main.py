@@ -25,6 +25,11 @@ jag i programkommenterarna referera till som menyvy och spelvy.
 Mer info: Mer utförlig beskrivning av programmets funktionalitet och vilka
 referenser som har använts se Rapport.pdf bifogad i samma katalog som programmet.
 
+Uppdatering 2013-09-09:
+Programmet kunde inte starta på Windows eller MAC datorer. Detta berodde troligtvis på
+att spelets bakgrundsmusik var av formatet FLAC. Bakgrundsmusiken har nu bytts ut mot
+en WAV fil.
+
 """
 
 import pygame
@@ -58,7 +63,7 @@ try:
     gv.graphics["color_black"] = gv.black
     
     # Läs in ljudfiler.
-    gv.sounds["theme"] = pygame.mixer.Sound(os.path.join("sound", "theme.flac"))
+    gv.sounds["theme"] = pygame.mixer.Sound(os.path.join("sound", "theme.wav"))
     gv.sounds["eat"] = pygame.mixer.Sound(os.path.join("sound", "eat.wav"))
     gv.sounds["highscore"]  = pygame.mixer.Sound(os.path.join("sound", "highscore.wav"))
     gv.sounds["wrong"]  = pygame.mixer.Sound(os.path.join("sound", "wrong.wav"))
